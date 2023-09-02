@@ -1,7 +1,7 @@
 from flask import Flask, jsonify, request, json
 from flask_cors import CORS, cross_origin
 from flask_sqlalchemy import SQLAlchemy
-# import os
+import os
 
 app = Flask(__name__)
 CORS(app)
@@ -23,15 +23,15 @@ def todo_serializer(todo):
       'content': todo.content
    }
 
-@app.route('/', methods=['GET'])
-@cross_origin()
-def serve_frontend():
-    return app.send_static_file('index.html')
+# @app.route('/', methods=['GET'])
+# @cross_origin()
+# def serve_frontend():
+#     return app.send_static_file('index.html')
 
-@app.route('/static/<path:path>')
-@cross_origin()
-def serve_static(path):
-   return app.send_static_file(os.path.join('YouDoTodo-App', 'public', path))
+# @app.route('/static/<path:path>')
+# @cross_origin()
+# def serve_static(path):
+#    return app.send_static_file(os.path.join('YouDoTodo-App', 'public', path))
 
 @app.route('/api', methods=['GET'])
 @cross_origin()
