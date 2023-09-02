@@ -1,12 +1,13 @@
 from flask import Flask, jsonify, request, json
 from flask_cors import CORS, cross_origin
 from flask_sqlalchemy import SQLAlchemy
-import os
+# import os
 
 app = Flask(__name__)
 CORS(app)
-basedir = os.path.abspath(os.path.dirname(__file__))
-app.config["SQLALCHEMY_DATABASE_URI"] = 'sqlite:///' + os.path.join(basedir, 'app.sqlite')
+# basedir = os.path.abspath(os.path.dirname(__file__))
+# app.config["SQLALCHEMY_DATABASE_URI"] = 'sqlite:///' + os.path.join(basedir, 'app.sqlite')
+app.config["SQLALCHEMY_DATABASE_URI"] = 'postgresql://vrbgfzfgoxllgb:d420f4a0559ca4cf90146e367a828543aaf87939865876975fe087fb0dc6584b@ec2-107-21-67-46.compute-1.amazonaws.com:5432/d5h7evj9lgj92k'
 db = SQLAlchemy(app)
 
 class Todo(db.Model):
